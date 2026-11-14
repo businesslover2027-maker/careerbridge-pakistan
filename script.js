@@ -13,38 +13,90 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         navLinks.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
+            link.addEventListener("click", function () {
                 navLinks.classList.remove("active");
             });
         });
     }
 
-    // JOB SEARCH
+    // SEARCH JOBS, INTERNSHIPS AND SCHOLARSHIPS
     const searchForm = document.getElementById("jobSearchForm");
     const jobSearch = document.getElementById("jobSearch");
     const locationSearch = document.getElementById("locationSearch");
     const jobType = document.getElementById("jobType");
-    const jobCards = document.querySelectorAll(".job-card");
+
+    const opportunityCards = document.querySelectorAll(
+        ".job-card, .internship-card, .scholarship-card"
+    );
 
     if (searchForm) {
         searchForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const keyword = jobSearch.value.toLowerCase().trim();
-            const location = locationSearch.value.toLowerCase().trim();
-            const type = jobType.value.toLowerCase().trim();
+            const keyword = jobSearch
+                ? jobSearch.value.toLowerCase().trim()
+                : "";
 
-            jobCards.forEach(card => {
+            const location = locationSearch
+                ? locationSearch.value.toLowerCase().trim()
+                : "";
+
+            const type = jobType
+                ? jobType.value.toLowerCase().trim()
+                : "";
+
+            opportunityCards.forEach(card => {
                 const text = card.textContent.toLowerCase();
+
+                const isJob = card.classList.contains("job-card");
+                const isInternship = card.classList.contains("internship-card");
+                const isScholarship = card.classList.contains("scholarship-card");
+
+                let matchesType = true;
+
+                if (type && type !== "all") {
+                    if (type.includes("internship")) {
+                        matchesType = isInternship;
+                    } else if (type.includes("scholarship")) {
+                        matchesType = isScholarship;
+                    } else if (
+                        type === "job" ||
+                        type === "jobs" ||
+                        type === "full-time" ||
+                        type === "part-time"
+                    ) {
+                        matchesType = isJob && text.includes(type.replace("s", ""));
+                        
+                        if (type === "job" || type === "jobs") {
+                            matchesType = isJob;
+                        }
+                    } else {
+                        matchesType = text.includes(type);
+                    }
+                }
 
                 const matchesKeyword = !keyword || text.includes(keyword);
                 const matchesLocation = !location || text.includes(location);
-                const matchesType = !type || text.includes(type);
 
                 card.style.display =
                     matchesKeyword && matchesLocation && matchesType
-                    ? "block" : "none";
+                        ? ""
+                        : "none";
             });
+
+            // Show results section
+            const firstVisibleCard = Array.from(opportunityCards).find(
+                card => card.style.display !== "none"
+            );
+
+            if (firstVisibleCard) {
+                firstVisibleCard.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            } else {
+                alert("No matching opportunities found. Try different search words.");
+            }
         });
     }
 
@@ -56,25 +108,29 @@ document.addEventListener("DOMContentLoaded", function () {
         cvForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const name = document.getElementById("cvName").value.trim();
-            const email = document.getElementById("cvEmail").value.trim();
-            const phone = document.getElementById("cvPhone").value.trim();
-            const education = document.getElementById("cvEducation").value.trim();
-            const skills = document.getElementById("cvSkills").value.trim();
-            const experience = document.getElementById("cvExperience").value.trim();
-            const summary = document.getElementById("cvSummary").value.trim();
+            const getValue = id => {
+                const field = document.getElementById(id);
+                return field ? field.value.trim() : "";
+            };
+
+            const name = getValue("cvName");
+            const email = getValue("cvEmail");
+            const phone = getValue("cvPhone");
+            const education = getValue("cvEducation");
+            const skills = getValue("cvSkills");
+            const experience = getValue("cvExperience");
+            const summary = getValue("cvSummary");
 
             if (!name) {
                 alert("Please enter your full name.");
                 return;
             }
 
-            // Use textContent to safely display user-entered information.
             cvPreview.replaceChildren();
 
-            function addSection(tag, text) {
+            function addSection(tag, content) {
                 const element = document.createElement(tag);
-                element.textContent = text;
+                element.textContent = content;
                 cvPreview.appendChild(element);
             }
 
@@ -112,15 +168,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll(".apply-btn").forEach(button => {
         button.addEventListener("click", function () {
-            selectedJob.textContent =
-                "Position: " + button.dataset.job;
+            if (!applicationModal || !selectedJob) return;
 
-            applicationMessage.textContent = "";
+            selectedJob.textContent = "Position: " + (button.dataset.job || "Selected job");
+
+            if (applicationMessage) {
+                applicationMessage.textContent = "";
+            }
+
             applicationModal.classList.add("active");
         });
     });
 
-    if (closeModal) {
+    if (closeModal && applicationModal) {
         closeModal.addEventListener("click", function () {
             applicationModal.classList.remove("active");
         });
@@ -138,10 +198,13 @@ document.addEventListener("DOMContentLoaded", function () {
         applicationForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            applicationMessage.textContent =
-                "Demo only: Your application was not sent to an employer.";
+            if (applicationMessage) {
+                applicationMessage.textContent =
+                    "Demo only: Your application was not sent to an employer.";
 
-            applicationMessage.style.color = "#0D9488";
+                applicationMessage.style.color = "#0D9488";
+            }
+
             applicationForm.reset();
         });
     }
