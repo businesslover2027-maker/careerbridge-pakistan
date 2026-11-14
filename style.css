@@ -1,25 +1,13 @@
 
 /* =====================================
-   CAREERBRIDGE PAKISTAN - STYLE.CSS
+   CAREERBRIDGE PAKISTAN
+   PROFESSIONAL WEBSITE DESIGN
 ===================================== */
 
-/* 1. GLOBAL STYLES */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:root {
-    --primary: #102A43;
-    --secondary: #2563EB;
-    --accent: #0D9488;
-    --background: #F8FAFC;
-    --white: #FFFFFF;
-    --text: #334155;
-    --muted: #64748B;
-    --border: #E2E8F0;
-    --shadow: 0 5px 20px rgba(15, 23, 42, 0.07);
 }
 
 html {
@@ -28,479 +16,556 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.6;
+    background: #f6f8fd;
+    color: #344054;
+    line-height: 1.7;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
-}
-
-button,
-input,
-select,
-textarea {
-    font: inherit;
-}
-
-button {
-    cursor: pointer;
 }
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1180px;
     margin: auto;
 }
 
-.section {
-    padding: 75px 0;
-}
+/* NAVIGATION */
 
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-title h2 {
-    color: var(--primary);
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.section-title p {
-    color: var(--muted);
-    font-size: 16px;
-}
-
-/* 2. NAVBAR */
 .navbar {
-    background: var(--white);
-    padding: 16px 0;
-    box-shadow: var(--shadow);
+    background: #ffffff;
+    padding: 17px 0;
+    box-shadow: 0 3px 18px rgba(40, 55, 90, 0.07);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 }
 
 .navbar .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .logo {
-    color: var(--primary);
+    color: #354879;
     font-size: 25px;
     font-weight: 800;
+    white-space: nowrap;
 }
 
 .logo span {
-    color: var(--secondary);
+    color: #8b83df;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
     list-style: none;
+    gap: 19px;
 }
 
 .nav-links a {
-    color: var(--text);
+    color: #4b5875;
     font-size: 14px;
     font-weight: 600;
-    transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--secondary);
+    color: #8176d5;
 }
 
 .nav-buttons {
     display: flex;
     gap: 10px;
-    align-items: center;
 }
 
 .menu-toggle {
     display: none;
-    background: none;
     border: none;
-    font-size: 25px;
-    color: var(--primary);
+    background: #efedff;
+    color: #514c9a;
+    padding: 9px 13px;
+    border-radius: 8px;
+    font-size: 22px;
 }
 
-/* 3. BUTTONS */
+/* BUTTONS */
+
 .btn {
     display: inline-block;
-    padding: 11px 22px;
-    border-radius: 7px;
-    border: none;
-    font-weight: 600;
-    transition: 0.3s;
-    text-align: center;
+    padding: 11px 21px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.25s;
 }
 
 .btn-primary {
-    background: var(--secondary);
-    color: var(--white);
+    background: #8178d5;
+    color: white;
 }
 
 .btn-primary:hover {
-    background: #1D4ED8;
+    background: #6d63bd;
     transform: translateY(-2px);
 }
 
 .btn-outline {
-    border: 1px solid var(--secondary);
-    color: var(--secondary);
-    background: transparent;
+    background: white;
+    color: #756cc6;
+    border-color: #d9d5f4;
 }
 
 .btn-outline:hover {
-    background: var(--secondary);
-    color: var(--white);
+    background: #f0efff;
 }
 
-/* 4. HERO SECTION */
+/* HERO WITH PHOTO */
+
 .hero {
-    background: linear-gradient(120deg, #102A43, #174B78);
-    color: var(--white);
-    padding: 100px 0;
-    text-align: center;
+    padding: 105px 0;
+    background:
+        linear-gradient(90deg,
+        rgba(25, 43, 79, 0.91),
+        rgba(48, 66, 112, 0.72),
+        rgba(70, 89, 132, 0.30)),
+        url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero .container {
+    text-align: left;
 }
 
 .hero h1 {
-    font-size: clamp(32px, 5vw, 52px);
+    max-width: 720px;
+    color: white;
+    font-size: clamp(34px, 5vw, 55px);
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .hero h1 span {
-    color: #60A5FA;
+    color: #c9c4ff;
 }
 
 .hero p {
     max-width: 650px;
-    margin: 0 auto 30px;
-    color: #DCE8F5;
+    color: #f0f2fa;
     font-size: 17px;
+    margin-bottom: 28px;
 }
 
 .hero-buttons {
     display: flex;
-    justify-content: center;
-    gap: 15px;
     flex-wrap: wrap;
+    gap: 13px;
 }
 
-.hero .btn-outline {
-    border-color: var(--white);
-    color: var(--white);
+.hero-buttons .btn-outline {
+    background: rgba(255,255,255,0.95);
 }
 
-.hero .btn-outline:hover {
-    background: var(--white);
-    color: var(--primary);
-}
+/* SEARCH BAR */
 
-/* 5. JOB SEARCH */
 .search-section {
-    margin-top: -35px;
     position: relative;
-    z-index: 5;
+    z-index: 2;
+    margin-top: -38px;
 }
 
 .search-box {
-    background: var(--white);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    background: white;
+    padding: 23px;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr auto;
+    gap: 13px;
+    box-shadow: 0 10px 35px rgba(40, 55, 90, 0.12);
 }
 
 .search-box input,
 .search-box select {
-    flex: 1;
-    min-width: 180px;
-    padding: 13px;
-    border: 1px solid var(--border);
-    border-radius: 7px;
+    min-width: 0;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #e0e5ef;
+    border-radius: 8px;
+    background: #fbfcff;
+    color: #344054;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
     outline: none;
+    border-color: #9188dc;
+    box-shadow: 0 0 0 3px #eeedff;
 }
 
-.search-box input:focus,
-.search-box select:focus {
-    border-color: var(--secondary);
+/* GENERAL SECTIONS */
+
+.section {
+    padding: 65px 0;
 }
 
-/* 6. CARDS AND GRIDS */
-.tools-grid,
-.jobs-grid,
-.category-grid,
-.scholarship-grid,
-.resource-grid,
-.internship-grid {
+.section-title {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.section-title h2 {
+    color: #354879;
+    font-size: 32px;
+    margin-bottom: 9px;
+}
+
+.section-title p {
+    color: #7b8499;
+}
+
+/* CATEGORIES */
+
+.category-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
 }
 
 .card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 25px;
-    transition: 0.3s;
+    background: white;
+    border: 1px solid #e9edf5;
+    border-radius: 15px;
+    padding: 27px;
+    box-shadow: 0 5px 18px rgba(40,55,90,0.045);
+    transition: 0.25s;
 }
 
-.card:hover {
+.category-card:hover,
+.job-card:hover,
+.internship-card:hover,
+.scholarship-card:hover,
+.resource-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow);
-    border-color: #BFDBFE;
-}
-
-.card h3 {
-    color: var(--primary);
-    margin-bottom: 10px;
-    font-size: 19px;
-}
-
-.card p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 15px;
+    box-shadow: 0 12px 28px rgba(55, 68, 110, 0.11);
 }
 
 .card-icon {
-    width: 48px;
-    height: 48px;
-    background: #EFF6FF;
-    color: var(--secondary);
+    width: 55px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    font-size: 23px;
-    margin-bottom: 18px;
+    background: #efedff;
+    border-radius: 13px;
+    font-size: 27px;
+    margin-bottom: 17px;
 }
 
-/* 7. JOB CARDS */
-.job-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    transition: 0.3s;
+.category-card:nth-child(2) .card-icon {
+    background: #e5f5ff;
 }
 
-.job-card:hover {
-    box-shadow: var(--shadow);
-    transform: translateY(-4px);
+.category-card:nth-child(3) .card-icon {
+    background: #fceefa;
+}
+
+.category-card:nth-child(4) .card-icon {
+    background: #fff2e6;
+}
+
+.category-card:nth-child(5) .card-icon {
+    background: #e6f8f1;
+}
+
+.category-card:nth-child(6) .card-icon {
+    background: #fff8dc;
+}
+
+.category-card h3,
+.job-card h3,
+.internship-card h3,
+.scholarship-card h3,
+.resource-card h3 {
+    color: #354879;
+    font-size: 19px;
+    margin-bottom: 9px;
+}
+
+.category-card p,
+.job-card p,
+.internship-card p,
+.scholarship-card p,
+.resource-card p {
+    color: #7b8499;
+    font-size: 14px;
+}
+
+/* JOB CARDS */
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.job-card,
+.internship-card,
+.scholarship-card,
+.resource-card {
+    background: white;
+    border: 1px solid #e9edf5;
+    border-radius: 15px;
+    padding: 27px;
+    box-shadow: 0 5px 18px rgba(40,55,90,0.045);
+    transition: 0.25s;
 }
 
 .job-card h3 {
-    color: var(--primary);
-    font-size: 19px;
-    margin-bottom: 7px;
+    margin-top: 15px;
 }
 
 .job-company {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 15px;
+    font-weight: bold;
+    color: #7a79bb !important;
 }
 
 .job-details {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 15px 0;
+    gap: 12px;
+    margin: 17px 0;
+    color: #737e93;
+    font-size: 13px;
 }
 
-.job-details span {
-    background: #F1F5F9;
-    padding: 6px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    color: var(--text);
+.job-card .btn {
+    margin-top: 18px;
 }
 
 .job-tag {
     display: inline-block;
-    background: #DCFCE7;
-    color: #166534;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    margin-bottom: 12px;
+    background: #efedff;
+    color: #7469c5;
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
 }
 
-/* 8. CATEGORY SECTION */
-.category-card {
-    text-align: center;
+/* INTERNSHIPS */
+
+.internship-grid,
+.scholarship-grid,
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
 }
 
-.category-card .card-icon {
-    margin: 0 auto 15px;
-}
-
-/* 9. INTERNSHIP AND SCHOLARSHIP */
-.internship-card,
-.scholarship-card,
-.resource-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
+.internship-card .job-tag {
+    margin-top: 17px;
 }
 
 .internship-card h3,
-.scholarship-card h3,
-.resource-card h3 {
-    color: var(--primary);
-    margin-bottom: 10px;
+.scholarship-card h3 {
+    margin-bottom: 12px;
 }
 
-.internship-card p,
-.scholarship-card p,
-.resource-card p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 15px;
+.scholarship-card .btn {
+    margin-top: 18px;
 }
 
-/* 10. CV BUILDER */
+/* CV BUILDER */
+
 .cv-builder {
-    background: var(--white);
+    max-width: 950px;
+    margin: auto;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-}
-
-.cv-builder h3 {
-    color: var(--primary);
-    margin-bottom: 20px;
+    background: #f7f7ff;
+    border: 1px solid #e7e5fa;
+    border-radius: 17px;
 }
 
 .cv-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 19px;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.form-group.full-width {
-    grid-column: 1 / -1;
+    text-align: left;
 }
 
 .form-group label {
+    display: block;
+    color: #4a5675;
     font-size: 14px;
-    font-weight: 600;
-    color: var(--primary);
+    font-weight: bold;
+    margin-bottom: 7px;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
-    padding: 12px;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    outline: none;
-    width: 100%;
+.full-width {
+    grid-column: 1 / -1;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--secondary);
-}
-
-.form-group textarea {
+.cv-form textarea {
     min-height: 100px;
     resize: vertical;
 }
 
 .cv-preview {
-    background: #FFFFFF;
-    border: 1px solid var(--border);
+    background: white;
+    border: 1px solid #e3e6ef;
     padding: 30px;
-    margin-top: 25px;
-    color: #1E293B;
-}
-
-/* 11. MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.65);
-    z-index: 2000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal-content {
-    background: var(--white);
-    padding: 30px;
+    margin: 25px 0;
     border-radius: 12px;
-    width: 100%;
-    max-width: 500px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
+    text-align: left;
+    min-height: 120px;
 }
 
-.modal-close {
-    position: absolute;
-    top: 12px;
-    right: 18px;
-    background: none;
-    border: none;
-    font-size: 25px;
-    color: var(--muted);
+.cv-preview h2 {
+    color: #354879;
 }
 
-/* 12. ABOUT SECTION */
+#printCV {
+    margin-top: 8px;
+}
+
+/* OFFICIAL RESOURCES */
+
+.official-resources {
+    background: #edf0ff;
+    padding: 70px 20px;
+    margin-top: 40px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    color: #354879;
+    font-size: 32px;
+}
+
+.section-heading p {
+    color: #7b8499;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.resource-card {
+    text-align: left;
+    background: white;
+}
+
+.resource-card:nth-child(even) {
+    background: #fdfcff;
+}
+
+.resource-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #7469c5;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* ABOUT */
+
 .about-section {
-    background: #EFF6FF;
+    background: #eaf7f7;
+    border-radius: 18px;
+    margin-bottom: 60px;
 }
 
 .about-content {
-    max-width: 800px;
+    max-width: 750px;
     margin: auto;
     text-align: center;
 }
 
 .about-content h2 {
-    color: var(--primary);
-    font-size: 32px;
-    margin-bottom: 15px;
+    color: #354879;
+    margin-bottom: 18px;
+    font-size: 30px;
 }
 
 .about-content p {
-    color: var(--muted);
-    margin-bottom: 15px;
+    color: #68768d;
+    margin-bottom: 12px;
 }
 
-/* 13. FOOTER */
+/* APPLICATION MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(25, 35, 65, 0.65);
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    text-align: left;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.modal-content h2 {
+    color: #354879;
+    margin-bottom: 10px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: #efedff;
+    color: #514c9a;
+    border: none;
+    border-radius: 7px;
+    padding: 4px 11px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
 .footer {
-    background: var(--primary);
-    color: var(--white);
+    background: #29395f;
+    color: white;
     padding: 55px 0 20px;
 }
 
@@ -508,16 +573,17 @@ button {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 35px;
-    margin-bottom: 35px;
+    text-align: left;
 }
 
 .footer h3,
 .footer h4 {
-    margin-bottom: 15px;
+    color: white;
+    margin-bottom: 13px;
 }
 
 .footer p {
-    color: #CBD5E1;
+    color: #d8dff0;
     font-size: 14px;
 }
 
@@ -526,189 +592,152 @@ button {
 }
 
 .footer-links li {
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 
 .footer-links a {
-    color: #CBD5E1;
+    color: #d8dff0;
     font-size: 14px;
 }
 
 .footer-links a:hover {
-    color: var(--white);
+    color: #c9c4ff;
 }
 
 .footer-bottom {
-    border-top: 1px solid #35516D;
-    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.16);
+    margin-top: 35px;
+    padding-top: 18px;
     text-align: center;
-    color: #CBD5E1;
-    font-size: 13px;
 }
 
-/* 14. DARK MODE */
-body.dark-mode {
-    --background: #0F172A;
-    --white: #1E293B;
-    --primary: #E2E8F0;
-    --text: #CBD5E1;
-    --muted: #94A3B8;
-    --border: #334155;
-    --shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-}
+/* RESPONSIVE DESIGN */
 
-body.dark-mode .navbar,
-body.dark-mode .card,
-body.dark-mode .job-card,
-body.dark-mode .cv-builder,
-body.dark-mode .modal-content {
-    background: var(--white);
-}
-
-body.dark-mode .about-section {
-    background: #172554;
-}
-
-body.dark-mode .job-details span {
-    background: #334155;
-    color: #E2E8F0;
-}
-
-/* 15. RESPONSIVE DESIGN */
-@media (max-width: 900px) {
-    .tools-grid,
-    .jobs-grid,
-    .category-grid,
-    .scholarship-grid,
-    .resource-grid,
-    .internship-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 950px) {
+    .navbar .container {
+        flex-wrap: wrap;
     }
 
     .nav-links {
-        gap: 15px;
+        gap: 11px;
+    }
+
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-grid,
+    .jobs-grid,
+    .internship-grid,
+    .scholarship-grid,
+    .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 650px) {
+    .navbar .container {
+        justify-content: space-between;
+    }
+
     .menu-toggle {
         display: block;
     }
 
-    .nav-links {
+    .navbar nav {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
         width: 100%;
-        background: var(--white);
-        padding: 20px;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: var(--shadow);
     }
 
-    .nav-links.active {
-        display: flex;
+    .navbar nav.active {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        padding: 15px 0;
     }
 
     .nav-buttons {
-        display: none;
+        width: 100%;
+        justify-content: center;
     }
 
     .hero {
-        padding: 75px 0;
+        padding: 70px 0;
+        background-position: center;
+    }
+
+    .hero .container {
+        text-align: center;
     }
 
     .hero h1 {
-        font-size: 34px;
+        font-size: 35px;
     }
 
-    .section {
-        padding: 55px 0;
+    .hero-buttons {
+        justify-content: center;
     }
 
-    .section-title h2 {
-        font-size: 27px;
+    .search-section {
+        margin-top: 20px;
     }
 
+    .search-box {
+        grid-template-columns: 1fr;
+    }
+
+    .category-grid,
+    .jobs-grid,
+    .internship-grid,
+    .scholarship-grid,
+    .resource-grid,
+    .resources-grid,
+    .cv-form,
     .footer-grid {
         grid-template-columns: 1fr;
     }
 
-    .cv-form {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 500px) {
-    .tools-grid,
-    .jobs-grid,
-    .category-grid,
-    .scholarship-grid,
-    .resource-grid,
-    .internship-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .search-box {
+    .cv-builder {
         padding: 18px;
     }
 
-    .search-box input,
-    .search-box select,
-    .search-box button {
-        width: 100%;
+    .full-width {
+        grid-column: auto;
     }
 
-    .hero-buttons {
-        flex-direction: column;
+    .section {
+        padding: 40px 0;
     }
 
-    .hero-buttons .btn {
-        width: 100%;
+    .section-title h2,
+    .section-heading h2 {
+        font-size: 26px;
     }
 
-    .card,
-    .job-card {
-        padding: 20px;
+    .footer-grid {
+        text-align: center;
     }
 }
 
-/* PRINT ONLY CV - ONE PAGE */
+/* PRINT CV */
+
 @media print {
-
-    @page {
-        size: A4;
-        margin: 15mm;
+    body * {
+        visibility: hidden;
     }
 
-    body > header,
-    body > footer,
-    body > main > section:not(#cv) {
-        display: none !important;
-    }
-
-    #cv .container > .section-title,
-    #cv .cv-builder > form,
-    #cv .cv-builder > #printCV {
-        display: none !important;
+    #cvPreview,
+    #cvPreview * {
+        visibility: visible;
     }
 
     #cvPreview {
-        display: block !important;
-        position: static !important;
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 15px !important;
-        border: none !important;
-        box-shadow: none !important;
-        background: white !important;
-        color: black !important;
-        font-size: 12px !important;
-    }
-
-    #cvPreview * {
-        color: black !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
     }
 }
